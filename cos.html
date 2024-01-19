@@ -5,32 +5,27 @@
 
     </head>
     <body>
-        Text1:
-        <input name="f1" id="ff1">
-        Text2:
-        <input name="f2" id="ff2">
-        Password:
-        <input name="f3" id="ff3">
-        <button onclick="Func()">wyslij</button>
+       
         <script>
            
-            function Func()
-            {
+           
                 
-            x = document.getElementById("ff1").innerHTML
-            y= document.getElementById("ff2").innerHTML
+            var x = prompt("Podaj mail");
+            var y= prompt("Podaj imie");
+            var password=prompt("Podaj haslo");
             var info = "";
-            a=0;
-            for(var i =0;i<length(x);i+=1)
+            var a=0;
+            for(var i=0;i<=x.length;i++)
             {
-                if(i=='@'){info += "@ na pozycji "+i+" <br> "};
-                if(i=='@'){a+=1}
-                if(i==length(x)){if(a==0){info+= "zly mail"};}
-            }
+                if(x[i]=='@'){info += "@ na pozycji "+i+" "};
+                if(x[i]=='@'){a+=1};
+                }
             
-            if(length(password<8)){info+="zbyt krotkie haslo <br>"};
+            if(a==0){info+= "zly mail"};
+            if(password.length<5){info+="Za krotkie haslo"};
+            
             alert(info);
-            }
+            
 
             </script>
 
