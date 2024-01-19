@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+    <head>
+
+
+    </head>
+    <body>
+        Text1:
+        <input name="f1" id="ff1">
+        Text2:
+        <input name="f2" id="ff2">
+        Password:
+        <input name="f3" id="ff3">
+        <button onclick="Func()">wyslij</button>
+        <script>
+           
+            function Func()
+            {
+                
+            x = document.getElementById("ff1").innerHTML
+            y= document.getElementById("ff2").innerHTML
+            var info = "";
+            a=0;
+            for(var i =0;i<length(x);i+=1)
+            {
+                if(i=='@'){info += "@ na pozycji "+i+" <br> "};
+                if(i=='@'){a+=1}
+                if(i==length(x)){if(a==0){info+= "zly mail"};}
+            }
+            
+            if(length(password<8)){info+="zbyt krotkie haslo <br>"};
+            alert(info);
+            }
+
+            </script>
+
+
+
+
+
+    </body>
+</html>
