@@ -1,0 +1,22 @@
+.small1,.big1,.small2pod3{
+border: rgb(107, 107, 107) solid 2px;
+border-radius: 25px;
+}
+
+
+.big1
+{
+border: rgb(107, 107, 107) solid 2px;
+border-radius: 25px;
+width: 200px;
+height:200px
+
+}
+.small1{
+width:30px;
+height:30px;
+}
+.small2pod3{
+width:34%;
+height:200px;
+}
