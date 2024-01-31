@@ -5,9 +5,157 @@
         
     </head>
     <body>
+        <p id="p1">Dealer</p>
+        <div id="left1">
+            <fieldset>
+                <legend>SKLEP</legend>
+            <div class="small1">
+                <table cellspacing="20"><tr><td> <button onclick="Narzedzia()" class="but1">+</button></td><td>Ulepsz narzêdzia</td><td id="cenanarz">20</td></tr></table>
 
+            </div>
+            <div class="small1">
+                <table cellspacing="20"><tr><td> <button onclick="Czlowiek()" class="but1">+</button></td><td>Wynajmij cz³owieka</td><td id="cenacz">250</td></tr></table>
+            </div>
+            <div class="small1">
+                <table cellspacing="20"><tr><td> <button onclick="Posiadlosc()" class="but1">+</button></td><td>Kup posiad³oœæ</td><td id="cenapos">500</td></tr></table>
+            </div>
+            </fieldset>
+        </div>
+        <div id="center1">
+            <fieldset>
+                <legend>INFORMACJE  </legend>
+                <table cellspacing="20" cellpadding="20">
+                    <tr><td>Wynajêci : </td><td id="wyn">0</td></tr>
+                    <tr><td>Pieniadze : </td><td id="pie">80</td></tr>
+                    <tr><td>Narzedzia : </td><td id="narz">0</td></tr>
+                    <tr><td>Posiadlosci : </td><td id="pos">0</td></tr>
+                    <tr><td>Zdrowie w % : </td><td id="zdrowie">100</td></tr>
+                    <tr><td colspan="2" id="info">INFO</td><td></td></tr>
+                </table>
+            </fieldset>
+        </div>
+        <div id="right1">
+            <fieldset>
+                <legend>AKCJE</legend>
+                
+                    <table cellspacing="20" cellpadding="10">
+                        <tr><td><button onclick="kradnij()" class="but2"></button></td><td>Kradnij</td><td>Szansa na powodzenie %</td><td id="kradnij">85</td><td>Zarobek : </td><td>20</td></tr>
+                    </table>
+                    <table cellspacing="20" cellpadding="10">
+                        <tr><td><button onclick="rabuj()" class="but2"></button></td><td>Rabunek</td><td>Szansa na powodzenie %</td><td id="rabuj">50</td><td>Zarobek : </td><td>45</td></tr>
+                    </table>
+                    <table cellspacing="20" cellpadding="10">
+                        <tr><td><button onclick="hackuj()" class="but2"></button></td><td>Hackuj</td><td>Szansa na powodzenie %</td><td id="hackuj">30</td><td>Zarobek : </td><td>80</td></tr>
+                    </table>
+                
+            </fieldset>
+        </div>
+        <script>
+            
+            var pieniadze = document.getElementById("pie")
+            var ludzie = document.getElementById("wyn")
+            var narzedzia =  document.getElementById("narz")
+            var posiadlosci = document.getElementById("pos")
+            var zdrowie = document.getElementById("zdrowie")
+            var pie=80, ludz=0, narz=0, pos=0, zdr = 100;
+            var cenaNarzedzi = 20, cenaLudzi = 250, cenaPos = 500;
+            var szankrad = document.getElementById("kradnij")
+            var szanrab = document.getElementById("rabuj")
+            var szanhack = document.getElementById("hackuj")
+            var info = document.getElementById("info")
+            var cenanarz = document.getElementById("cenanarz")
+            var cenacz = document.getElementById("cenacz")
+            var cenapos = document.getElementById("cenapos")
+            var wzrostnarz = 0, wzrostludzi = 0, wzrostpos = 0;
+            var zdarzeniaP = ["zosta³eœ przylapany p³acisz "]
+            var zdarzeniaD = ["Masz kumpla w policji ktory cie uratowal dostajesz ",]
+            function Event() {
+                if (Math.floor(Math.random() * 10) + 1 > 5) {
+                    let los = Math.floor(Math.random() * zdarzeniaD.length) + 1;
+                    let los1 = Math.floor(Math.random() * (pie * 0.8));
+                    info = zdarzeniaD[los] + los1
+                    pie += los1
+                    Sync();
+                }
+                else {
+                    let los = Math.floor(Math.random() * zdarzeniaP.length) + 1;
+                    let los1 = Math.floor(Math.random() * (pie * 0.8));
+                    info = zdarzeniaP[los] + los1
+                    pie += los1
+                    Sync();
+                }
+            }
+            function Sync() {
+                pieniadze.innerHTML = pie;
+                ludzie.innerHTML = ludz;
+                posiadlosci.innerHTML = pos;
+                zdrowie.innerHTML = zdr;
+                narzedzia.innerHTML = narz;
 
+                cenanarz.innerHTML = cenaNarzedzi;
+                cenacz.innerHTML = cenaLudzi;
+                cenapos.innerHTML = cenaPos;
+            }
+            //SKLEP
+            function Narzedzia() {
+                if (pie < cenaNarzedzi) { info.innerHTML = "Nie masz pieniedzy na narzedzia" }
+                else {
+                    narz += 1; pie -= cenaNarzedzi; wzrostnarz += 1; }
+            
+                if (wzrostnarz >= 5) {
+                    cenaNarzedzi += Math.floor(cenaNarzedzi % 10)
+                    wzrostnarz = 0;
+                }
+                
+                Sync();
+            }
+            function Czlowiek() {
+                if (pie < cenaLudzi) { info.innerHTML = "Nie masz pieniedzy na czlowieka" }
+                else { ludz += 1; pie -= cenaLudzi; wzrostludzi += 1 }
+                if (wzrostludzi >= 5) {
+                    cenaLudzi += Math.floor(cenaLudzi % 10)
+                    wzrostludzi = 0;
+                }
+                Sync();
+            }
+            function Posiadlosc() {
+                if (pie < cenaPos) { info.innerHTML = "Nie masz pieniedzy na posiadlosc" }
+                else { pos += 1; pie -= cenaPos; wzrostpos += 1 }
+                if (wzrostpos >= 5) {
+                    cenaPos += Math.floor(cenaPos % 10)
+                    wzrostpos = 0;
+                }
+                Sync();
+            }
+            //AKCJE
+            function kradnij() {
+                let los1 = Math.floor(Math.random() * 100  ) + 1;
+                let liczb = Math.floor(((100-parseInt(szankrad))*los1)/100)
+                if (los1 < liczb) { info.innerHTML = "Zosta³eœ z³apany na kradzie¿y !!!"; zdrowie -= 5; pieniadze -= 25;szankrad-=2 }
+                else {
+                    pieniadze += 20; szankrad += 2;
+                }
+                Sync();
+                
+            }
+            function rabuj() {
+                let los1 = Math.floor(Math.random() * 100) + 1;
+                let liczb = Math.floor(((100 - parseInt(szanrab)) * los1) / 100)
+                if (los1 < liczb) { info.innerHTML = "Zosta³eœ z³apany na rabunku !!!"; zdrowie -= 10; pieniadze -= 60; szanrab -= 2; }
+                else { pieniadze += 45; szanrab += 2; }
+                Sync();
+            }
+            function hackuj() {
+                let los1 = Math.floor(Math.random() * 100) + 1;
+                let liczb = Math.floor(((100 - parseInt(szanhack)) * los1) / 100)
+                if (los1 < liczb) { info.innerHTML = "Zosta³eœ z³apany na hackerstwie !!!"; zdrowie -= 15; pieniadze -= 100; szanhack -= 2; }
+                else {
+                    pieniadze += 80; szanhack += 2;
+                }
+                Sync();
+            }
 
+        </script>
 
 
     </body>
