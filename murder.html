@@ -51,7 +51,7 @@
             </fieldset>
         </div>
         <script>
-            
+            var czas = false;
             var pieniadze = document.getElementById("pie")
             var ludzie = document.getElementById("wyn")
             var narzedzia =  document.getElementById("narz")
@@ -67,21 +67,21 @@
             var cenacz = document.getElementById("cenacz")
             var cenapos = document.getElementById("cenapos")
             var wzrostnarz = 0, wzrostludzi = 0, wzrostpos = 0;
-            var zdarzeniaP = ["zosta³eœ przylapany p³acisz "]
-            var zdarzeniaD = ["Masz kumpla w policji ktory cie uratowal dostajesz ",]
-            function Event() {
+            var zdarzeniaP = ["zosta³eœ przylapany ","nakryli cie","nie zatarles sladow zbrodni","zostales zauwazony"]
+            var zdarzeniaD = ["Masz kumpla w policji ktory cie uratowal ","udalo ci sie oklamac policje","masz szczescie"]
+            function zdarzenie() {
                 if (Math.floor(Math.random() * 10) + 1 > 5) {
                     let los = Math.floor(Math.random() * zdarzeniaD.length) + 1;
                     let los1 = Math.floor(Math.random() * (pie * 0.8));
-                    info = zdarzeniaD[los] + los1
+                    info = zdarzeniaD[los] +" dostajesz " +los1
                     pie += los1
                     Sync();
                 }
                 else {
                     let los = Math.floor(Math.random() * zdarzeniaP.length) + 1;
                     let los1 = Math.floor(Math.random() * (pie * 0.8));
-                    info = zdarzeniaP[los] + los1
-                    pie += los1
+                    info = zdarzeniaP[los] +" placisz "+ los1
+                    pie -= los1
                     Sync();
                 }
             }
@@ -95,6 +95,18 @@
                 cenanarz.innerHTML = cenaNarzedzi;
                 cenacz.innerHTML = cenaLudzi;
                 cenapos.innerHTML = cenaPos;
+                if (czas == false && ludz > 0) {
+                    var czaspozniej = new Date();
+                    czas = true;
+                }
+                if (ludz > 0) {
+                    var czasteraz = new Date();
+                    if (czasteraz + 40 > czaspozniej) {
+                        pie += ludz * 30;
+                        czaspozniej = new Date();
+                    }
+                }
+
             }
             //SKLEP
             function Narzedzia() {
@@ -130,28 +142,31 @@
             //AKCJE
             function kradnij() {
                 let los1 = Math.floor(Math.random() * 100  ) + 1;
-                let liczb = Math.floor(((100-parseInt(szankrad))*los1)/100)
-                if (los1 < liczb) { info.innerHTML = "Zosta³eœ z³apany na kradzie¿y !!!"; zdrowie -= 5; pieniadze -= 25;szankrad-=2 }
+                
+                if (los1 >parseInt(szankrad)) { info.innerHTML = "Zosta³eœ z³apany na kradzie¿y !!!"; zdr -= 5; pie -= 25 }
                 else {
-                    pieniadze += 20; szankrad += 2;
+                    pie += 20;
                 }
+                if (Math.random() * 30 == 1) {zdarzenie() }
                 Sync();
                 
             }
             function rabuj() {
                 let los1 = Math.floor(Math.random() * 100) + 1;
-                let liczb = Math.floor(((100 - parseInt(szanrab)) * los1) / 100)
-                if (los1 < liczb) { info.innerHTML = "Zosta³eœ z³apany na rabunku !!!"; zdrowie -= 10; pieniadze -= 60; szanrab -= 2; }
-                else { pieniadze += 45; szanrab += 2; }
+                
+                if (los1 > parseInt(szanrab)) { info.innerHTML = "Zosta³eœ z³apany na rabunku !!!"; zdr -= 10; pie -= 60 }
+                else { pie += 45; }
+                if (Math.random() * 30 == 1) { zdarzenie() }
                 Sync();
             }
             function hackuj() {
                 let los1 = Math.floor(Math.random() * 100) + 1;
-                let liczb = Math.floor(((100 - parseInt(szanhack)) * los1) / 100)
-                if (los1 < liczb) { info.innerHTML = "Zosta³eœ z³apany na hackerstwie !!!"; zdrowie -= 15; pieniadze -= 100; szanhack -= 2; }
+                
+                if (los1 > parseInt(szanhack)) { info.innerHTML = "Zosta³eœ z³apany na hackerstwie !!!"; zdr -= 15; pie -= 100 }
                 else {
-                    pieniadze += 80; szanhack += 2;
+                    pie += 80; 
                 }
+                if (Math.random() * 30 == 1) { zdarzenie() }
                 Sync();
             }
 
