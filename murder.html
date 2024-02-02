@@ -10,14 +10,14 @@
             <fieldset>
                 <legend>SKLEP</legend>
             <div class="small1">
-                <table cellspacing="20"><tr><td> <button onclick="Narzedzia()" class="but1">+</button></td><td>Ulepsz narzêdzia</td><td id="cenanarz">20</td></tr></table>
+                <table cellspacing="20"><tr><td> <button onclick="Narzedzia()" class="but1">+</button></td><td>Ulepsz narzï¿½dzia</td><td id="cenanarz">20</td></tr></table>
 
             </div>
             <div class="small1">
-                <table cellspacing="20"><tr><td> <button onclick="Czlowiek()" class="but1">+</button></td><td>Wynajmij cz³owieka</td><td id="cenacz">250</td></tr></table>
+                <table cellspacing="20"><tr><td> <button onclick="Czlowiek()" class="but1">+</button></td><td>Wynajmij czï¿½owieka</td><td id="cenacz">250</td></tr></table>
             </div>
             <div class="small1">
-                <table cellspacing="20"><tr><td> <button onclick="Posiadlosc()" class="but1">+</button></td><td>Kup posiad³oœæ</td><td id="cenapos">500</td></tr></table>
+                <table cellspacing="20"><tr><td> <button onclick="Posiadlosc()" class="but1">+</button></td><td>Kup posiadï¿½oï¿½ï¿½</td><td id="cenapos">500</td></tr></table>
             </div>
             </fieldset>
         </div>
@@ -25,7 +25,7 @@
             <fieldset>
                 <legend>INFORMACJE  </legend>
                 <table cellspacing="20" cellpadding="20">
-                    <tr><td>Wynajêci : </td><td id="wyn">0</td></tr>
+                    <tr><td>Wynajï¿½ci : </td><td id="wyn">0</td></tr>
                     <tr><td>Pieniadze : </td><td id="pie">80</td></tr>
                     <tr><td>Narzedzia : </td><td id="narz">0</td></tr>
                     <tr><td>Posiadlosci : </td><td id="pos">0</td></tr>
@@ -42,10 +42,10 @@
                         <tr><td><button onclick="kradnij()" class="but2"></button></td><td>Kradnij</td><td>Szansa na powodzenie %</td><td id="kradnij">85</td><td>Zarobek : </td><td>20</td></tr>
                     </table>
                     <table cellspacing="20" cellpadding="10">
-                        <tr><td><button onclick="rabuj()" class="but2"></button></td><td>Rabunek</td><td>Szansa na powodzenie %</td><td id="rabuj">50</td><td>Zarobek : </td><td>45</td></tr>
+                        <tr><td><button onclick="rabuj()" class="but2"></button></td><td>Rabunek</td><td>Szansa na powodzenie %</td><td id="rabuj">40</td><td>Zarobek : </td><td>45</td></tr>
                     </table>
                     <table cellspacing="20" cellpadding="10">
-                        <tr><td><button onclick="hackuj()" class="but2"></button></td><td>Hackuj</td><td>Szansa na powodzenie %</td><td id="hackuj">30</td><td>Zarobek : </td><td>80</td></tr>
+                        <tr><td><button onclick="hackuj()" class="but2"></button></td><td>Hackuj</td><td>Szansa na powodzenie %</td><td id="hackuj">20</td><td>Zarobek : </td><td>80</td></tr>
                     </table>
                 
             </fieldset>
@@ -59,15 +59,16 @@
             var zdrowie = document.getElementById("zdrowie")
             var pie=80, ludz=0, narz=0, pos=0, zdr = 100;
             var cenaNarzedzi = 20, cenaLudzi = 250, cenaPos = 500;
-            var szankrad = document.getElementById("kradnij")
-            var szanrab = document.getElementById("rabuj")
-            var szanhack = document.getElementById("hackuj")
+            var szankrad = 85,szankrab = 40,szanhack = 20;
+            var szankrad1 = document.getElementById("kradnij")
+            var szanrab1 = document.getElementById("rabuj")
+            var szanhack1 = document.getElementById("hackuj")
             var info = document.getElementById("info")
             var cenanarz = document.getElementById("cenanarz")
             var cenacz = document.getElementById("cenacz")
             var cenapos = document.getElementById("cenapos")
             var wzrostnarz = 0, wzrostludzi = 0, wzrostpos = 0;
-            var zdarzeniaP = ["zosta³eœ przylapany ","nakryli cie","nie zatarles sladow zbrodni","zostales zauwazony"]
+            var zdarzeniaP = ["zostaÅ‚eÅ› przylapany ","nakryli cie","nie zatarles sladow zbrodni","zostales zauwazony"]
             var zdarzeniaD = ["Masz kumpla w policji ktory cie uratowal ","udalo ci sie oklamac policje","masz szczescie"]
             function zdarzenie() {
                 if (Math.floor(Math.random() * 10) + 1 > 5) {
@@ -91,6 +92,10 @@
                 posiadlosci.innerHTML = pos;
                 zdrowie.innerHTML = zdr;
                 narzedzia.innerHTML = narz;
+
+                szankrad1.innerHTML = szankrad;
+                szanrab1.innerHTML = szanrab;
+                szanhack1.innerHTML = szanhack;
 
                 cenanarz.innerHTML = cenaNarzedzi;
                 cenacz.innerHTML = cenaLudzi;
@@ -142,8 +147,9 @@
             //AKCJE
             function kradnij() {
                 let los1 = Math.floor(Math.random() * 100  ) + 1;
-                
-                if (los1 >parseInt(szankrad)) { info.innerHTML = "Zosta³eœ z³apany na kradzie¿y !!!"; zdr -= 5; pie -= 25 }
+                console.log(los1)
+                console.log(szankrad)
+                if (los1 >szankrad) { info.innerHTML = "Zostaï¿½eï¿½ zï¿½apany na kradzieï¿½y !!!"; zdr -= 5; pie -= 25 }
                 else {
                     pie += 20;
                 }
@@ -154,7 +160,7 @@
             function rabuj() {
                 let los1 = Math.floor(Math.random() * 100) + 1;
                 
-                if (los1 > parseInt(szanrab)) { info.innerHTML = "Zosta³eœ z³apany na rabunku !!!"; zdr -= 10; pie -= 60 }
+                if (los1 > szanrab) { info.innerHTML = "Zostaï¿½eï¿½ zï¿½apany na rabunku !!!"; zdr -= 10; pie -= 60 }
                 else { pie += 45; }
                 if (Math.random() * 30 == 1) { zdarzenie() }
                 Sync();
@@ -162,7 +168,7 @@
             function hackuj() {
                 let los1 = Math.floor(Math.random() * 100) + 1;
                 
-                if (los1 > parseInt(szanhack)) { info.innerHTML = "Zosta³eœ z³apany na hackerstwie !!!"; zdr -= 15; pie -= 100 }
+                if (los1 > szanhack) { info.innerHTML = "Zostaï¿½eï¿½ zï¿½apany na hackerstwie !!!"; zdr -= 15; pie -= 100 }
                 else {
                     pie += 80; 
                 }
