@@ -6,7 +6,7 @@ var czas = false;
             var zdrowie = document.getElementById("zdrowie")
             var pie=80, ludz=0, narz=0, pos=0, zdr = 100;
             var cenaNarzedzi = 20, cenaLudzi = 250, cenaPos = 500;
-            var szankrad = 85,szankrab = 40,szanhack = 20;
+            var szankrad = 85, szanrab = 40, szanhack = 20;
             var szankrad1 = document.getElementById("kradnij")
             var szanrab1 = document.getElementById("rabuj")
             var szanhack1 = document.getElementById("hackuj")
@@ -58,6 +58,9 @@ var czas = false;
                         czaspozniej = new Date();
                     }
                 }
+                if(zdr<=0){Death()}
+                if(zdr<15){zdrowie.style.color="red";}
+                else{zdrowie.style.color="white"}
 
             }
             //SKLEP
@@ -122,3 +125,9 @@ var czas = false;
                 if (Math.random() * 30 == 1) { zdarzenie() }
                 Sync();
             }
+            function Death()
+            {
+                document.getElementsByTagName('body').innerHTML = "Przegrałeś";
+                document.getElementsByTagName('body').style.color="red";
+            }
+            
