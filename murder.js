@@ -1,19 +1,26 @@
-var czas = false;
+            var czas = false;
+
             var pieniadze = document.getElementById("pie")
             var ludzie = document.getElementById("wyn")
             var narzedzia =  document.getElementById("narz")
             var posiadlosci = document.getElementById("pos")
             var zdrowie = document.getElementById("zdrowie")
+
             var pie=80, ludz=0, narz=0, pos=0, zdr = 100;
-            var cenaNarzedzi = 20, cenaLudzi = 250, cenaPos = 500;
+            var cenaNarzedzi = 20, cenaLudzi = 250, cenaPos = 500,cenaZdr=100;
             var szankrad = 85, szanrab = 40, szanhack = 20;
+
             var szankrad1 = document.getElementById("kradnij")
             var szanrab1 = document.getElementById("rabuj")
             var szanhack1 = document.getElementById("hackuj")
+
             var info = document.getElementById("info")
+
             var cenanarz = document.getElementById("cenanarz")
             var cenacz = document.getElementById("cenacz")
             var cenapos = document.getElementById("cenapos")
+            var cenazdr = document.getElementById("cenazdr")
+
             var wzrostnarz = 0, wzrostludzi = 0, wzrostpos = 0;
             var zdarzeniaP = ["zostałeś przylapany ","nakryli cie","nie zatarles sladow zbrodni","zostales zauwazony"]
             var zdarzeniaD = ["Masz kumpla w policji ktory cie uratowal ","udalo ci sie oklamac policje","masz szczescie"]
@@ -47,6 +54,7 @@ var czas = false;
                 cenanarz.innerHTML = cenaNarzedzi;
                 cenacz.innerHTML = cenaLudzi;
                 cenapos.innerHTML = cenaPos;
+                cenazdr.innerHTML = cenaZdr;
                 if (czas == false && ludz > 0) {
                     var czaspozniej = new Date();
                     czas = true;
@@ -94,6 +102,23 @@ var czas = false;
                 }
                 Sync();
             }
+            function Kup(arg){
+                switch(arg){
+                    case 
+                }
+
+
+
+
+            }
+            function UlZdrowie(){
+            if (pie < cenaZdr) { info.innerHTML = "Nie masz pieniedzy na ulepszenie zdrowia" }
+            else{
+                money -= cenaZdr;
+                zdr += 20;
+
+            }
+            }
             //AKCJE
             function kradnij() {
                 let los1 = Math.floor(Math.random() * 100  ) + 1;
@@ -128,6 +153,6 @@ var czas = false;
             function Death()
             {
                 document.getElementsByTagName('body').innerHTML = "Przegrałeś";
-                document.getElementsByTagName('body').style.color="red";
+                
             }
             

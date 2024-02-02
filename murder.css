@@ -61,7 +61,7 @@ table{
     
 }
 #center1{
-    width:40%;
+    width:33%;
     
     color:white;
     font-size:30px;
@@ -80,6 +80,13 @@ table{
     height:100%;
     padding: 2px;
     
+}
+#left2{
+    float:left;
+    width:30%;
+    margin: 3px;
+    height:100%;
+    padding: 2px;
 }
 body{
     background-color:black;
