@@ -21,6 +21,23 @@
             var cenapos = document.getElementById("cenapos")
             var cenazdr = document.getElementById("cenazdr")
 
+            var cenykupna = [300,600,800,1500]
+            var cenysprzedazy = [300,600,800,1500]
+            var ckludzi = document.getElementById("cenaludzi")
+            var ckdok = document.getElementById("cenadok")
+            var cknarz = document.getElementById("cenanarzadow")
+            var ckziola = document.getElementById("cenamar")
+
+            var csludzi = document.getElementById("cenasludzi")
+            var csdok = document.getElementById("cenasdok")
+            var csnarz = document.getElementById("cenasnarzadow")
+            var csziola = document.getElementById("cenasmar")
+
+            var posLudzi = 0;
+            var posDok = 0;
+            var posZiola = 0;
+            var posNarz = 0;
+
             var wzrostnarz = 0, wzrostludzi = 0, wzrostpos = 0;
             var zdarzeniaP = ["zostałeś przylapany ","nakryli cie","nie zatarles sladow zbrodni","zostales zauwazony"]
             var zdarzeniaD = ["Masz kumpla w policji ktory cie uratowal ","udalo ci sie oklamac policje","masz szczescie"]
@@ -69,6 +86,17 @@
                 if(zdr<=0){Death()}
                 if(zdr<15){zdrowie.style.color="red";}
                 else{zdrowie.style.color="white"}
+
+            ckdok.innerHTML = cenykupna[0];
+            ckziola.innerHTML = cenykupna[1]
+            cknarz.innerHTML = cenykupna[2]
+            ckludzi.innerHTML = cenykupna[3]
+
+            csdok.innerHTML = cenysprzedazy[0];
+            csziola.innerHTML = cenysprzedazy[1]
+            csnarz.innerHTML = cenysprzedazy[2]
+            csludzi.innerHTML = cenysprzedazy[3]
+
 
             }
             //SKLEP
@@ -156,3 +184,55 @@
                 
             }
             
+            //CZARNY RYNEK
+            function kup(aaa){
+                switch(a){
+                    //KUP
+                    case "kludz":
+                    if(pie>=cenykupna[3]){posLudzi+=1}
+                    else{info += "Nie masz pieniedzy na ludzi"}
+                        break;
+                    case "kziola":
+                        if(pie>=cenykupna[1]){posZiola+=1}
+                        else{info += "Nie masz pieniedzy na ziola"}
+                        break;
+                    case "kdok":
+                        if(pie>=cenykupna[0]){posDok+=1}
+                        else{info += "Nie masz pieniedzy na dokumenty"}
+                        break;
+                    case "knarz":
+                        if(pie>=cenykupna[2]){posNarz+=1}
+                        else{info += "Nie masz pieniedzy na narzady"}
+                        break;
+                        //SPRZEDAJ
+                    case "sludz":
+                        if(posLudzi>=1){posLudzi-=1}
+                        break;
+                    case "sziola":
+
+                        break;
+                    case "sdok":
+
+                        break;
+                    case "snarz":
+
+                        break;
+
+
+
+
+
+
+                }
+
+            }
+
+
+
+
+
+
+
+
+
+
