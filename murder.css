@@ -51,17 +51,17 @@ table{
 }
 #p1{
     
-    font-size:80px;
+    font-size:65px;
     text-align:center;
     color:white;
 }
 #akcje{
     float:left;
-    width:25%;
-    
+    width:23%;
+    width:73px;
 }
 #center1{
-    width:33%;
+    width:30%;
     
     color:white;
     font-size:30px;
@@ -74,7 +74,7 @@ table{
 
 }
 .ekwipunek {
-    width: 150px;
+    width: 130px;
     float: left;
    
     
