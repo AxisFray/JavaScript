@@ -65,7 +65,12 @@
                 }
             }
 function Sync() {
-    CCeny();
+    pie = parseInt(pie.toFixed(2));
+    for (var i = 0; i < 4; i++) {
+        cenysprzedazy[i].toFixed(2);
+        cenykupna[i].toFixed(2);
+    }
+                
                 pieniadze.innerHTML = pie;
                 ludzie.innerHTML = ludz;
                 posiadlosci.innerHTML = pos;
@@ -115,14 +120,17 @@ function Sync() {
 }
 
 
-            function CCeny() {
-                for (var i = 0; i < 4; i++) {
-                    los1 = Math.floor(Math.random() * (1 / 20) *cs[i])
-                    los2 = Math.floor(Math.random() * ( 1 / 20 ) * ck[i])
-                    if ((Math.floor(Math.random() * 2) + 1) == 1) { cs[i] -= los1 } else { cs[i] += los1 }
-                    if ((Math.floor(Math.random() * 2) + 1) == 1) { ck[i] -= los1 } else { ck[i] += los1 }
-
-
+function CCeny() {
+    console.log("sdedce")
+                pie -= 1 / 5 * pie;
+                for (var i = 0; i < 4; i+=1) {
+                    los1 = Math.floor(Math.random() * (1 / 20) *cenysprzedazy[i])
+                    los2 = Math.floor(Math.random() * ( 1 / 20 ) * cenykupna[i])
+                    if ((Math.floor(Math.random() * 2) + 1) == 1) { cenysprzedazy[i] -= los1 } else { cenysprzedazy[i] += los1 }
+                    if ((Math.floor(Math.random() * 2) + 1) == 1) { cenykupna[i] -= los1 } else { cenykupna[i] += los1 }
+                    console.log(cenykupna[i])
+                    console.log(cenysprzedazy[i])
+                    Sync();
                 }
             }
             //SKLEP
