@@ -55,9 +55,9 @@ table{
     text-align:center;
     color:white;
 }
-#right1{
+#akcje{
     float:left;
-    width:30%;
+    width:37%;
     
 }
 #center1{
@@ -73,17 +73,26 @@ table{
 #center2{
 
 }
-#left1{
+.ekwipunek {
+    width: 150px;
+    float: left;
+   
+    
+    margin: 3px;
+    height: 270px;
+    padding: 2px;
+}
+.left1{
     float:left;
-    width:25%;
+    width:20%;
     margin: 3px;
     height:100%;
     padding: 2px;
     
 }
-#left2{
+#left3{
     float:left;
-    width:30%;
+    width:40%;
     margin: 3px;
     height:100%;
     padding: 2px;
