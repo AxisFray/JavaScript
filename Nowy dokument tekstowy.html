@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <style>
+            button{
+                width:500px;
+                height:500px;
+                border-color: green;
+                background-color: lightgreen;
+            }
+            body{
+                text-align: center;
+                font-family: fantasy;
+                font-size: 60px;
+            }
+        </style>
+    </head>
+    <body>
+
+        <p id="p1">
+
+
+        </p>
+        <button id="b1" onmouseover="mOver(this)" onmousemove="mMove(this)" contextmenu="RB(this)" onmousedown="mDown(this)" onmouseout="mOut(this)" onmouseup="mUp(this)" dblclick="dbclick(this)" onmouseenter="mEnter(this)">
+            rfgrgrghhjoijoijoij
+        </button>
+
+
+    <script>
+        function mOver(id)
+        {
+            id.innerHTML = "mOver";
+        }
+        function mUp(id)
+        {
+            id.innerHTML  = "mUp";
+        }
+        function mDown(id)
+        {
+            id.innerHTML = "mDown";
+        }
+        function mMove(id)
+        {
+            id.innerHTML = "mMove";
+        }
+        function dbclick(id)
+        {
+            id.innerHTML = "dblclick";
+        }
+        function mEnter(id)
+        {
+            id.innerHTML = "mEnter";
+        }
+        function RB(id)
+        {
+            id.innerHTML = "Right Button";
+        }
+        
+    </script>
+
+
+    </body>
+</html>
