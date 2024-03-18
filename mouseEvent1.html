@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button id="button1" ondblclick="D(this.id)" onmouseenter="Enter(this.id)" onmousedown="Enter(this.id)" onmouseleave="Leave(this.id)" >Przycisk  1</button>
+    <button id="button2" ondblclick="D(this.id)" onmouseenter="Enter(this.id)" onmousedown="Enter(this.id)" onmouseleave="Leave(this.id)" >Przycisk  2</button>
+    <button id="button1" ondblclick="D(this.id)" onmouseenter="Enter(this.id)" onmousedown="Enter(this.id)" onmouseleave="Leave(this.id)" >Przycisk  3</button>
+    <button id="button2" ondblclick="D(this.id)" onmouseenter="Enter(this.id)" onmousedown="Enter(this.id)" onmouseleave="Leave(this.id)" >Przycisk  4</button>
+    <br>
+    <button id="button2" ondblclick="D(this.id)" onmouseenter="Enter(this.id)" onmousedown="Enter(this.id)" onmouseleave="Leave(this.id)" >Przycisk  5</button>
+    <button id="button1" ondblclick="D(this.id)" onmouseenter="Enter(this.id)" onmousedown="Enter(this.id)" onmouseleave="Leave(this.id)" >Przycisk  6</button>
+    <button id="button2" ondblclick="D(this.id)" onmouseenter="Enter(this.id)" onmousedown="Enter(this.id)" onmouseleave="Leave(this.id)" >Przycisk  7</button>
+    <button id="button1" ondblclick="D(this.id)" onmouseenter="Enter(this.id)" onmousedown="Enter(this.id)" onmouseleave="Leave(this.id)" >Przycisk  8</button>
+    <br>
+    <button id="button1" ondblclick="D(this.id)" onmouseenter="Enter(this.id)" onmousedown="Enter(this.id)" onmouseleave="Leave(this.id)" >Przycisk  9</button>
+    <button id="button2" ondblclick="D(this.id)" onmouseenter="Enter(this.id)" onmousedown="Enter(this.id)" onmouseleave="Leave(this.id)" >Przycisk 10</button>
+    <button id="button1" ondblclick="D(this.id)" onmouseenter="Enter(this.id)" onmousedown="Enter(this.id)" onmouseleave="Leave(this.id)" >Przycisk 11</button>
+    <button id="button2" ondblclick="D(this.id)" onmouseenter="Enter(this.id)" onmousedown="Enter(this.id)" onmouseleave="Leave(this.id)" >Przycisk 12</button>
+    <br>
+    <button id="button2" ondblclick="D(this.id)" onmouseenter="Enter(this.id)" onmousedown="Enter(this.id)" onmouseleave="Leave(this.id)" >Przycisk 13</button>
+    <button id="button1" ondblclick="D(this.id)" onmouseenter="Enter(this.id)" onmousedown="Enter(this.id)" onmouseleave="Leave(this.id)" >Przycisk 14</button>
+    <button id="button2" ondblclick="D(this.id)" onmouseenter="Enter(this.id)" onmousedown="Enter(this.id)" onmouseleave="Leave(this.id)" >Przycisk 15</button>
+    <button id="button1" ondblclick="D(this.id)" onmouseenter="Enter(this.id)" onmousedown="Enter(this.id)" onmouseleave="Leave(this.id)" >Przycisk 16</button>
+    <br>
+    <table><tr>Pieniądze : </tr><td id="money"></td></table>
+
+
+
+
+<script>
+money = 0;
+m = document.getElementById("money")
+function S()
+{
+    m.innerHTML = money;
+}
+function onClick1()
+{
+    money += 200;
+    S();
+}
+function onClick2()
+{
+    money -= 20;
+}
+function onClick3()
+{
+    money -= 2300;
+}
+function Move1()
+{
+    money += 20000;
+}
+function Move2()
+{
+    money -= 200;
+}
+function onClick1()
+{
+    money += 200;
+}
+function Down(id)
+{
+    switch(id)
+    {
+        case "button1":
+        money-=2;
+        break;
+        case "button2":
+        money+=2;
+        break;
+        case "button3":
+        money-=5;
+        break;
+        case "button4":
+        money+=1;
+        break;
+    }
+    S();
+}
+function Up(id)
+{
+    switch(id)
+    {
+        case "button1":
+        money-=2000;
+        break;
+        case "button2":
+        money+=2000;
+        break;
+        case "button3":
+        money-=5;
+        break;
+        case "button4":
+        money+=1111;
+        break;
+    }
+    S();
+
+}
+function Enter(id)
+{
+    switch(id)
+    {
+        case "button1":
+        money+=2000;
+        break;
+        case "button2":
+        money-=20;
+        break;
+        case "button3":
+        money+=5;
+        break;
+        case "button4":
+        money-=1111;
+        break;
+    }
+    S();
+
+}
+    
+function D(id)
+{
+    switch(id)
+    {
+        case "button1":
+        money-=100;
+        break;
+        case "button2":
+        money-=20;
+        break;
+        case "button3":
+        money+=400;
+        break;
+        case "button4":
+        money-=11;
+        break;
+    }
+    S();
+}
+
+function Leave(id)
+{
+    switch(id)
+    {
+        case "button1":
+        money+=999;
+        break;
+        case "button2":
+        money-=2099;
+        break;
+        case "button3":
+        money+=10000;
+        break;
+        case "button4":
+        money-=11;
+        break;
+    }
+    S();
+}
+function Out()
+{
+    money += 3000;
+}
+</script>
+
+</body>
+</html>
