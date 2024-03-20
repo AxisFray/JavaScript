@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <style>
+        body {
+            cursor: crosshair;
+        }
+
+        div {
+            color: rgb(7, 7, 82);
+
+            border: solid rgb(7, 7, 82);
+            background-color: lightblue;
+            text-align: center;
+            width: 23.2%;
+            float: left;
+            padding: 0.1%;
+            margin: 0.1%;
+
+        }
+
+        img {
+
+            float: left;
+
+        }
+
+        button {
+            width: 24.4%;
+            color: rgb(7, 7, 82);
+            background-color: lightblue;
+            border: solid;
+            border-color: rgb(7, 7, 82);
+            border-width: 5px;
+            margin-bottom: 2px;
+        }
+
+        button:hover {
+            background-color: blue;
+            border: solid 5px rgb(3, 186, 246);
+            color: rgb(3, 186, 246);
+        }
+
+        .j {
+
+            height: 120px;
+            text-align: center;
+            padding: 1px;
+
+        }
+
+        body {
+            background-color: lightblue;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="j"><img src="photos/imgwork.png"></div>
+    <div class="j"><img src="photos/imgfood6.png"></div>
+    <div class="j"><img src="photos/ilearn.png"></div>
+
+    <div class="j"><img src="photos/irest.png"></div>
+
+
+
+    <p id="demo">
+        <button onclick="Work()">PRACUJ</button>
+        <button onclick="Eat()">JEDZ</button>
+        <button onclick="Rest()">ODPOCZNIJ</button>
+        <button onclick="Learn()">UCZ SIE</button>
+        <button onclick="Play()">GRAJ</button>
+        <button onclick="Meet()">SPOTKAJ SIE</button>
+        <button onclick="Lotto()">LOTTO</button>
+
+    </p>
+    <div id="d1"></div>
+    <div id="d2"></div>
+    <div id="d3"></div>
+    <div id="d4"></div>
+    <div id="d5"></div>
+    <div id="d6"></div>
+
+
+    <script>
+
+        let zdrowie = 10.0;
+        let jedzenie = 10.0;
+        let konto = 3.0;
+        let edukacja = 1.0;
+        let samopoczucie = 5.0;
+        let wlasnosci = " ";
+        let znajomi = 0;
+        let czas1 = getSeconds();
+
+        function Show() {
+
+            if (zdrowie <= 1.0) { document.getElementById("d1").style.backgroundColor = "red"; }
+            else { document.getElementById("d1").style.backgroundColor = "lightblue"; }
+            if (jedzenie <= 1.0) { document.getElementById("d2").style.backgroundColor = "red"; }
+            else { document.getElementById("d2").style.backgroundColor = "lightblue"; }
+            if (samopoczucie <= 1.0) { document.getElementById("d5").style.backgroundColor = "red"; }
+            else { document.getElementById("d5").style.backgroundColor = "lightblue"; }
+            if (konto <= 2.0) { document.getElementById("d3").style.backgroundColor = "red"; }
+            else { document.getElementById("d3").style.backgroundColor = "lightblue"; }
+            if (konto <= 1) {
+                samopoczucie -= 1
+                zdrowie -= 1;
+            }
+            document.getElementById("d1").innerHTML = "życie : " + "<br>" + Round(zdrowie);
+            document.getElementById("d2").innerHTML = "jedzenie : " + "<br>" + Round(jedzenie);
+            document.getElementById("d3").innerHTML = "konto : " + "<br>" + Round(konto);
+            document.getElementById("d4").innerHTML = "edukacja : " + "<br>" + Round(edukacja);
+            document.getElementById("d5").innerHTML = "samopoczucie : " + "<br>" + Round(samopoczucie);
+            document.getElementById("d6").innerHTML = "znajomi : " + "<br>" + znajomi;
+        }
+        Show()
+        function Round(x) {
+            if (zdrowie <= 0) { Dead(); }
+            if (jedzenie <= 0) { Dead(); }
+            if (samopoczucie <= 0) { Dead(); }
+
+            return parseFloat(x).toFixed(1);
+            if (czas1 + 40 < getSeconds() && znajomi > 0) {
+                czas1 = getSeconds();
+                samopoczucie += 3;
+                zdrowie += 2;
+            }
+
+
+        }
+
+
+        function Lotto() {
+            konto -= 10;
+            let y = Math.random() * 10 % 100;
+            if (y == 100) { konto += Math.random() * 100; }
+        }
+        function Meet() {
+            samopoczucie += 1;
+            konto -= 2;
+            jedzenie += 1;
+            let x = (Math.random() * 10) % 10;
+            if (x <= 1) { znajomi += 1; }
+            Show();
+        }
+        function Eat() {
+            jedzenie += 1;
+            samopoczucie += 0.2;
+            konto -= 0.5;
+
+            Show()
+        }
+        function Rest() {
+            zdrowie += 0.5;
+            samopoczucie += 1;
+            jedzenie -= 0.5;
+
+            Show();
+        }
+        function Work() {
+            konto += edukacja * 0.5;
+            jedzenie -= 0.2;
+            zdrowie -= 0.2;
+            samopoczucie -= 0.5;
+
+            Show();
+        }
+        function Learn() {
+            edukacja += 0.2;
+            konto -= 0.5;
+            jedzenie -= 0.3;
+            zdrowie -= 0.3;
+
+            Show()
+        }
+        function Play() {
+
+            if (edukacja - 0.2 <= 0.2) {
+                alert("za mało edukacji");
+                pass;
+            }
+            edukacja -= 0.2;
+            zdrowie += 1.0;
+            samopoczucie += 1;
+            Show()
+        }
+        function Dead() {
+            close();
+        }
+
+
+    </script>
+</body>
+
+</html>
