@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <style>
+        #blok1{
+            width:100px;
+            height:100px;
+            background-color: red;
+            position: absolute;
+        }
+    </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mouse Event</title>
+</head>
+<body>
+    
+<div id="blok1"></div>
+
+    <script>
+        var sPressed=false;
+        var aPressed=false;
+        var wPressed=false;
+        var dPressed=false;
+
+
+        function keyDownHandler(event)
+        {
+            switch(event.keyCode)
+            {
+                case 87:
+                    wPressed = true;
+                    console.log("w")
+                break;
+                case 83:
+                    sPressed = true;
+                    console.log("s")
+
+                break;
+                case 65:
+                    aPressed = true;
+                    console.log("a")
+
+                break;
+                case 68:
+                    dPressed = true;
+                    console.log("d")
+
+                break;
+            }
+        }
+        function keyUpHandler(event)
+        {
+            switch(event.keyCode)
+            {
+                case 87:
+                    wPressed = false;
+
+                break;
+                case 83:
+                    sPressed = false;
+
+                break;
+                case 65:
+                    aPressed = false;
+
+                break;
+                case 68:
+                    dPressed = false;
+                break;
+            }
+        }
+        
+        function move()
+        {
+
+            console.log(wPressed);
+        }
+        setInterval(move,20);
+    </script>
+
+
+</body>
+</html>
