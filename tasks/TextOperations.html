@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <div id="widzi to pan?">
+        <textarea id="textInput" rows="4" cols="50"></textarea><br><br>
+
+        <label for="searchInput">Wyszukaj:</label>
+        <input type="text" id="searchInput"><br><br>
+        
+        <label for="replaceInput">Zamień:</label>
+        <input type="text" id="replaceInput"><br><br>
+        
+        <input type="button" value="Wyszukaj" onclick="searchText()">
+        <input type="button" value="Wyszukaj pierwszy i zamień" onclick="searchAndReplace()">
+        <input type="button" value="Wyszukaj globalnie i zamień" onclick="searchAndReplaceGlobal()">
+        <input type="button" value="Usuń słowo" onclick="deleteWord()"><br><br>
+        <div id="info" style="border: 1px solid black; padding: 10px;"></div>
+    </div>
+    <script>
+        function searchText() {
+            var text = document.getElementById("textInput").value;
+            var search = document.getElementById("searchInput").value;
+            var info = document.getElementById("info");
+
+            if (text.includes(search)) {
+                info.innerHTML = "Znaleziono szukane słowo.";
+            } else {
+                info.innerHTML = "Nie znaleziono szukanego słowa.";
+            }
+        }
+        function searchAndReplace(){
+            var text = document.getElementById("textInput").value;
+            var search = document.getElementById("searchInput").value;
+            var replace = document.getElementById("replaceInput").value;
+
+            var changes = new RegExp('\\b' + search + '\\b', 'i');
+            var info = document.getElementById("info");
+
+            changedText = text.replace(cahnges,replace);
+            document.getElementById("textInput").value = changedText;
+            
+            if (text== changedText) {
+                info.innerHTML = "Znaleziono szukane słowo i zamieniono.";
+            } else {
+                info.innerHTML = "Nie znaleziono szukanego słowa.";
+            }
+        
+        }
+        function searchAndReplaceGlobal(){
+            var text = document.getElementById("textInput").value;
+            var search = document.getElementById("searchInput").value;
+            var replace = document.getElementById("replaceInput").value;
+            var info = document.getElementById("info");
+            var changes = new RegExp('\\b' + search + '\\b', 'gi');
+
+            changedText = text.replace(changes,replace);
+            document.getElementById("textInput").value = changedText;
+
+            if (text== changedText) {
+                info.innerHTML = "Znaleziono szukane słowa i zamieniono.";
+            } else {
+                info.innerHTML = "Nie znaleziono szukanego słowa.";
+            }
+
+        }
+
+        function deleteWord(){
+            var text = document.getElementById("textInput").value;
+            var search = document.getElementById("searchInput").value;
+            var info = document.getElementById("info");
+            var changes = new RegExp('\\b' + search + '\\b', 'i');
+
+            changedText = text.replace(changes, "");
+            document.getElementById("textInput").value = changedText;
+
+            if (text== changedText) {
+                info.innerHTML = "Znaleziono szukane słowo i usunięto.";
+            } else {
+                info.innerHTML = "Nie znaleziono szukanego słowa.";
+            }
+        
+        }
+        
+
+    </script>
+</body>
+</html>
