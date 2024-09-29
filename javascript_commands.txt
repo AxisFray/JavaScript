@@ -1,0 +1,7 @@
+- - - - - - -  - - - - - - - - - - FORMULARZE - - - - - - - - - - - - -
+document.getElementById("id").value
+//pobranie wartości przez id
+
+document.querySelectorAll(css selectors)
+//css selectors = input , p , div , .klasa1
+//zwraca tablice document.querySelectorAll("input")[0] zwraca pierwszy input
