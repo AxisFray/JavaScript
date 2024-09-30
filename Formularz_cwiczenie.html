@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="pl-PL">
+  <head>
+    <style>
+      body {
+        background-color: darkseagreen;
+      }
+    </style>
+    <meta charset="UTF-8" />
+    <title>Formularz</title>
+  </head>
+  <body>
+    <form
+      accept-charset="UTF-8"
+      action="action_page.php"
+      autocomplete="off"
+      method="GET"
+      target="_blank"
+      id="form1"
+    >
+      <fieldset>
+        <legend>Dane osobowe:</legend>
+        <label for="name">Imie</label>
+        <input name="name" type="text" value="Frank" /> <br />
+        <label for="surname">Nazwisko</label>
+        <input name="surname" type="text" value="Castle" /> <br />
+        <input checked="checked" name="sex" type="radio" value="male" />
+        Mężczyzna<br />
+        <input name="sex" type="radio" value="female" /> Kobieta <br />
+      </fieldset>
+
+      <fieldset>
+        <legend>Dane kontaktowe:</legend>
+        <label for="birth">Data urodzenia</label>
+        <input name="birth" type="date" /> <br />
+        <label for="PID"> Pesel</label>
+        <input
+          name="PID"
+          minlength="11"
+          maxlength="11"
+          type="number"
+          value="00000000000"
+          onchange="CPes()"
+        />
+        <br />
+        <fieldset>
+          <legend>Dane kontaktowe:</legend>
+          <label for="adres_a"> Ulica</label>
+          <input name="street" type="text" maxlength="40" value="..." /> <br />
+          <label for="adres_b"> Nr domu</label>
+          <input name="street" type="text" maxlength="10" value="..." /> <br />
+          <label for="adres_c"> Miasto</label>
+          <input name="street" type="text" maxlength="40" value="..." /> <br />
+          <label for="adres_e"> Adres e-mail</label>
+          <input name="street" type="text" maxlength="80" value="..." /> <br />
+        </fieldset>
+      </fieldset>
+
+      <fieldset>
+        <legend>Typ pasażera:</legend>
+        <input type="checkbox" id="vehicle1" name="vehicle1" value="Bike" />
+        <label for="vehicle1"> niemowle</label><br />
+        <input type="checkbox" id="vehicle2" name="vehicle2" value="Car" />
+        <label for="vehicle2"> dziecko</label><br />
+        <input type="checkbox" id="vehicle3" name="vehicle3" value="Boat" />
+        <label for="vehicle3"> pełnoletni</label><br />
+      </fieldset>
+
+      <fieldset>
+        <legend>Typ biletu:</legend>
+        <label for="ticket">Rodzaj biletu</label>
+        <select name="ticket">
+          <option selected="selected" value="1">Podstawowy</option>
+          <option value="2">Rozszerzony</option>
+          <option value="3">Studencki</option>
+          <option value="4">Seniora</option>
+        </select>
+        <br />
+      </fieldset>
+
+      <fieldset>
+        <legend>Rodzaj pociągu:</legend>
+        <input type="radio" id="reg" name="train" value="reg" />
+        <label for="reg">Regio</label><br />
+        <input type="radio" id="mkl" name="train" value="mkl" />
+        <label for="mkl">Koleje Małopolskie</label><br />
+        <input type="radio" id="ic" name="train" value="ic" />
+        <label for="ic">InterCity</label><br />
+      </fieldset>
+
+      <fieldset>
+        <legend>Typ biletu:</legend>
+        <label for="extra_info">Dodatkowe uwagi do zamówienia</label><br />
+        <textarea cols="30" rows="2">...</textarea>
+        <br />
+      </fieldset>
+
+      <button type="submit" value="Submit">Submit</button>
+      <input type="button" value="Pobierz formularz" onclick="summary()" />
+    </form>
+    <b>Wyślij formularz </b>
+    <input type="button" onclick="Sent()" name="sent" id="sent" />
+    <div id="info"></div>
+
+    <script>
+      <!-- Ukrycie przed przegladarkami nie obslugujacymi JS
+      //dodaj przycisk pobierający dane z formularza i wypisujący je w konsoli lub dodatkowym elemencie div (3p)
+      // sprawdź czy nie ma pustych pól- zareaguj oknem alert lub confirm (1p)
+      // spr czy pesel nie jest za długi (1p)
+      // spr czy adres e-mail jest poprawny (czy przynajmniej zawiera @) (1p)
+
+      /*dodaj css: 
+         tło całej strony darkseagreen (1p)
+         tło kolejnych pól z elementami jako gradient- np zacznij od zielonego i daj kolejne jako coraz jasniejsze  (1p)
+         czcionka dla znaczników legend: Arial, całośc na 24px (1p)
+         
+         
+         
+         */
+      // przejdź poprawnie walidację kodu HTML (1p)
+      info = document.getElementById("info");
+      function summary() {
+        const list = document.getElementsByTagName("input");
+        for (i = 0; i < list.length; i++) {
+          console.log(list[i].value);
+        }
+      }
+      function CPes() {
+        let m = false;
+        pesel = document.getElementsByTagName("PID").value;
+        for (let i = 0; i < pesel.length; i++) {
+          if (i == "@") {
+            m = true;
+          }
+        }
+        if (m == false) {
+          info.innerHTML += "zły email";
+        }
+      }
+      function Sent() {
+        let tab1 = document.getElementById("form1").elements;
+        for (let i = 0; i < tab1.length; i++) {
+          console.log(tab1[i].value);
+        }
+      }
+      function Empty1() {
+        let tab1 = document.getElementById("form1").elements;
+        for (let i = 0; i < tab1.length; i++) {
+          if (tab1[i].value == "") {
+            info.innerHTML = "puste pola w formularzu";
+          }
+        }
+      }
+
+      //Koniec skryptu-->
+    </script>
+  </body>
+</html>
