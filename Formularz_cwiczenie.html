@@ -1,6 +1,7 @@
 <!DOCTYPE html>
-<html lang="pl-PL">
+<html>
   <head>
+    <meta lang="pl-PL" />
     <style>
       body {
         background-color: darkseagreen;
@@ -48,11 +49,11 @@
           <label for="adres_a"> Ulica</label>
           <input name="street" type="text" maxlength="40" value="..." /> <br />
           <label for="adres_b"> Nr domu</label>
-          <input name="street" type="text" maxlength="10" value="..." /> <br />
+          <input name="nr" type="text" maxlength="10" value="..." /> <br />
           <label for="adres_c"> Miasto</label>
-          <input name="street" type="text" maxlength="40" value="..." /> <br />
+          <input name="miasto" type="text" maxlength="40" value="..." /> <br />
           <label for="adres_e"> Adres e-mail</label>
-          <input name="street" type="text" maxlength="80" value="..." /> <br />
+          <input name="email" type="text" maxlength="80" value="..." /> <br />
         </fieldset>
       </fieldset>
 
@@ -99,7 +100,8 @@
       <input type="button" value="Pobierz formularz" onclick="summary()" />
     </form>
     <b>Wyślij formularz </b>
-    <input type="button" onclick="Sent()" name="sent" id="sent" />
+    <input type="button" onclick="Sent()" name="sent" id="sent" />Wyslij
+    <input type="button" onclick="Empty1()" name="emt" id="emt" />Empty
     <div id="info"></div>
 
     <script>
@@ -125,11 +127,11 @@
           console.log(list[i].value);
         }
       }
-      function CPes() {
+      function Cmail() {
         let m = false;
-        pesel = document.getElementsByTagName("PID").value;
-        for (let i = 0; i < pesel.length; i++) {
-          if (i == "@") {
+        let email = document.getElementsByTagName("email").value;
+        for (let i = 0; i <= email.length; i += 1) {
+          if (email[i] == "@") {
             m = true;
           }
         }
@@ -150,6 +152,7 @@
             info.innerHTML = "puste pola w formularzu";
           }
         }
+        Cmail();
       }
 
       //Koniec skryptu-->
