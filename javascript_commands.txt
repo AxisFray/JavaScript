@@ -5,3 +5,12 @@ document.getElementById("id").value
 document.querySelectorAll(css selectors)
 //css selectors = input , p , div , .klasa1
 //zwraca tablice document.querySelectorAll("input")[0] zwraca pierwszy input
+
+document.getElementByTagName(znacznik name)
+//zwraca elementy o podanym znaczniku name
+
+document.getElementById(formid).elements
+//pobiera formularz o id formid w formie tabeli
+//odczytanie 1 el. document.getElementById(id).elements[0].value
+
+//sprawdzenie zdresu email na onchange odrazu będzie sprawdzany
